@@ -1,0 +1,229 @@
+/*BEGIN MEYER RESET*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*END MEYER RESET*/
+
+* {
+  --color-4: #285430;
+  --color-3: #5f8d4e;
+  --color-2: #a4be7b;
+  --color-1: #e5d9b6;
+  /* outline: 1px solid black; */
+}
+
+body {
+  font-family: sans-serif;
+}
+
+header {
+  color: var(--color-1);
+  position: fixed;
+  width: 100%;
+}
+
+.header-bar {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-4);
+  outline: solid 2px black;
+}
+
+.header-logo {
+  width: 60px;
+  text-align: right;
+  font-size: 30px;
+  padding: 15px 0;
+}
+
+.header-label {
+  padding: 15px 6px;
+  text-align: left;
+  font-size: 30px;
+  width: 100%;
+}
+
+.side-bar {
+  width: fit-content;
+  height: 100vh;
+  background-color: var(--color-4);
+  position: fixed;
+  margin-top: 62px;
+  outline: 2px solid black;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 20px 0;
+}
+
+.project,
+.add-project {
+  margin: 10px 10px;
+  background-color: var(--color-2);
+  color: var(--color-4);
+  border-radius: 8px;
+  padding: 5px 10px;
+  text-align: center;
+  outline: 1px solid var(--color-1);
+  border: none;
+}
+
+.project:hover,
+.add-project:hover {
+  cursor: pointer;
+  color: var(--color-2);
+  background-color: var(--color-4);
+}
+
+.todo-list-wrapper {
+  background-color: var(--color-3);
+}
+
+.todo-list-tasks {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  padding-left: 127px;
+  height: 100vh;
+}
+
+.task {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--color-2);
+  color: var(--color-4);
+  padding: 10px;
+  margin: 10px;
+  outline: solid 1px black;
+  border-radius: 8px;
+}

@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Odin Todo List",
+      template: "./src/index.html",
     }),
   ],
   output: {
