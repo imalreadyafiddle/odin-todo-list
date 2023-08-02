@@ -1,6 +1,6 @@
 function createHeader() {
   let headerBarContainer = document.createElement("div");
-  headerBarContainer.classList.add("header-bar")
+  headerBarContainer.classList.add("header-bar");
   let header = document.querySelector("header");
   header.appendChild(headerBarContainer);
 
@@ -19,4 +19,4 @@ function createHeader() {
   });
 }
 
-export {createHeader}
+export { createHeader };
