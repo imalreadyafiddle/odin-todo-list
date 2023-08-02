@@ -136,7 +136,6 @@ table {
   --color-3: #5f8d4e;
   --color-2: #a4be7b;
   --color-1: #e5d9b6;
-  /* outline: 1px solid black; */
 }
 
 body {
@@ -201,8 +200,8 @@ header {
 .project:hover,
 .add-project:hover {
   cursor: pointer;
-  color: var(--color-2);
-  background-color: var(--color-4);
+  /* color: var(--color-2);
+  background-color: var(--color-4); */
 }
 
 .todo-list-wrapper {
@@ -229,11 +228,15 @@ header {
   text-align: center;
 }
 
+.task:hover {
+  cursor: pointer;
+}
+
 .project-indicator {
   padding-left: 15px;
   font-weight: 500;
   font-size: 35px;
-  color: #e5d9b6;
+  color: var(--color-1);
 }
 
 .legend {
@@ -244,6 +247,92 @@ header {
   padding-top: 10px;
   margin-left: 15px;
   margin-right: 15px;
-  border-top: 2px solid #285430;
-  color: #e5d9b6;
+  border-top: 2px solid var(--color-4);
+  color: var(--color-1);
+}
+
+.task-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+.displayed-task {
+  color: var(--color-1);
+  position: relative;
+  left: 10vw;
+  top: 10vh;
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  border: solid 5px var(--color-1);
+  background-color: var(--color-4);
+  border-radius: 25px;
+  width: 80vw;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.task-card-name {
+  margin-left: 15px;
+  margin-top: 15px;
+  font-size: 40px;
+  height: fit-content;
+  width: fit-content;
+}
+
+.task-card-title-bar {
+  display: flex;
+}
+
+.close-task-button {
+  margin-right: 10px;
+  margin-left: auto;
+  margin-top: 10px;
+  height: 48px;
+}
+
+.close-task-button:hover {
+  cursor: pointer;
+}
+
+.close-icon-svg {
+  fill: var(--color-4);
+  background-color: var(--color-1);
+  border-radius: 50%;
+}
+
+.task-card-details {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: auto 4fr;
+  grid-gap: 20px;
+  grid-template-rows: 1fr 1fr 1fr 10fr;
+  font-size: 20px;
+}
+
+.close-icon-svg:hover {
+  opacity: 0.8;
+}
+
+.task-card-priority-dropdown,
+.task-card-due-date-select,
+.task-card-user-input-text,
+.task-card-status-dropdown {
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: var(--color-3);
+  color: var(--color-1);
+  font-family: sans-serif;
+  resize: none;
+}
+
+.task-card-due-date-select {
+  border-style: none;
 }

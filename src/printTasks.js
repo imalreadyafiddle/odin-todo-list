@@ -1,4 +1,5 @@
 import { getTasks } from "./getTasks";
+import { findTask } from "./findTask";
 
 function printTasks(projectNumber) {
   let tasks = getTasks(projectNumber);
@@ -9,6 +10,7 @@ function printTasks(projectNumber) {
   // set project name
   let projectIndicator = document.querySelector(".project-indicator");
   projectIndicator.innerText = tasks[0].projectName;
+  projectIndicator.setAttribute("project-number", tasks[0].projectNum);
 
   // create and print tasks to the task area
   tasks.forEach((task) => {
@@ -38,6 +40,13 @@ function printTasks(projectNumber) {
 
     taskDiv.setAttribute("task-number", i);
     i++;
+
+    taskDiv.addEventListener("click", () => {
+      findTask(
+        projectIndicator.getAttribute("project-number"),
+        taskDiv.getAttribute("task-number")
+      );
+    });
   });
 }
 
