@@ -6,6 +6,7 @@ function printProjects() {
   projectBar.innerHTML = "";
 
   let projectList = getProjects();
+  // do something if there are no projects returned...
   let i = 1;
 
   // print a button for each project to the sidebar
@@ -13,7 +14,7 @@ function printProjects() {
     // add button to sidebar
     let projectButton = document.createElement("button");
     projectButton.classList.add("project");
-    projectButton.innerText = project;
+    projectButton.innerText = `Project ${i}`;
 
     // set number for button to use in switcher & other function
     projectButton.setAttribute("project-button-number", i);
