@@ -2,6 +2,8 @@ import { getTasks } from "./getTasks";
 import { findTask } from "./findTask";
 import { removeTask } from "./removeTask";
 import { printProjects } from "./printProjects";
+import { switchProjects } from "./switchProjects";
+import { renameProject } from "./renameProject";
 
 function printTasks(projectNumber) {
   let tasks = getTasks(projectNumber);
@@ -10,11 +12,12 @@ function printTasks(projectNumber) {
   let projectIndicator = document.querySelector(".project-indicator");
   let addTaskButton = document.querySelector(".add-task");
   addTaskButton.setAttribute("style", "opacity:1;");
+  projectIndicator.setAttribute("contenteditable", true);
+  projectIndicator.addEventListener("change", renameProject);
   taskList.innerHTML = "";
 
-  if (tasks[0] == undefined) {
-    projectIndicator.innerText = "";
-    addTaskButton.setAttribute("style", "opacity:0;");
+  if (tasks[0] == undefined || projectNumber == "reset") {
+    switchProjects(1);
     printProjects();
     return;
   } else {

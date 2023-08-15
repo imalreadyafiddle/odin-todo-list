@@ -1,11 +1,9 @@
 import { switchProjects } from "./switchProjects";
 import { renumberTasks } from "./renumberTasks";
+import { renumberProjects } from "./renumberProjects";
+import { printProjects } from "./printProjects";
 
 function removeTask(projectNum, taskNum) {
-  console.log(
-    "Removing Task " + taskNum + " from Project " + projectNum + "..."
-  );
-
   let allTasks = JSON.parse(localStorage.getItem("tasks"));
   for (let i = 0; i < allTasks.length; i++) {
     if (
@@ -14,8 +12,10 @@ function removeTask(projectNum, taskNum) {
     ) {
       allTasks.splice(i, 1);
       let remainingTasks = renumberTasks(projectNum, allTasks);
+      renumberProjects(allTasks);
       localStorage.setItem("tasks", JSON.stringify(remainingTasks));
       switchProjects(projectNum);
+      printProjects();
       return;
     } else {
       continue;

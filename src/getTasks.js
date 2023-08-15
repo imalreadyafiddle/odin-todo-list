@@ -1,10 +1,12 @@
+import { printTasks } from "./printTasks";
+
 function getTasks(projectNum) {
   // default project list if one does not exist
   let defaultList = [
     {
       projectNum: 1,
       taskNum: 1,
-      projectName: "Long Project Name 1",
+      projectName: "Todoit Tutorial",
       taskName: "Click on a task",
       priority: "High",
       dueDate: "2023-12-12",
@@ -15,7 +17,7 @@ function getTasks(projectNum) {
     {
       projectNum: 1,
       taskNum: 2,
-      projectName: "Long Project Name 1",
+      projectName: "Todoit Tutorial",
       taskName: "to edit details.",
       priority: "Medium",
       dueDate: "2023-12-13",
@@ -26,7 +28,7 @@ function getTasks(projectNum) {
     {
       projectNum: 1,
       taskNum: 3,
-      projectName: "Long Project Name 1",
+      projectName: "Todoit Tutorial",
       taskName: "Use sidebar to switch projects.",
       priority: "Low",
       dueDate: "2023-12-14",
@@ -37,7 +39,7 @@ function getTasks(projectNum) {
     {
       projectNum: 2,
       taskNum: 1,
-      projectName: "Long Project Name 2",
+      projectName: "Click project name to change",
       taskName: "Empty projects are deleted.",
       priority: "Low",
       dueDate: "2023-12-15",
@@ -48,7 +50,16 @@ function getTasks(projectNum) {
   ];
 
   let allTasks;
-  if (JSON.parse(localStorage.getItem("tasks")) != null) {
+  if (projectNum == "all" && localStorage.getItem("tasks").length > 0) {
+    return JSON.parse(localStorage.getItem("tasks"));
+  } else if (projectNum == "reset") {
+    allTasks = defaultList;
+    localStorage.setItem("tasks", JSON.stringify(defaultList));
+    printTasks(1);
+  } else if (
+    JSON.parse(localStorage.getItem("tasks")) != null &&
+    localStorage.getItem("tasks").length > 0
+  ) {
     allTasks = JSON.parse(localStorage.getItem("tasks"));
   } else {
     allTasks = defaultList;
