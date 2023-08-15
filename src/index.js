@@ -6,16 +6,35 @@ import { printProjects } from "./printProjects";
 import { taskCloseButton } from "./taskCloseButton";
 import { addTask } from "./addTask";
 import { addProject } from "./addProject";
+import { renameProject } from "./renameProject";
 
 createHeader();
 printTasks(1);
 printProjects();
 taskCloseButton();
-let addTaskButton = document.querySelector(".add-task");
+const addTaskButton = document.querySelector(".add-task");
 addTaskButton.addEventListener("click", () => {
   addTask();
 });
-let addProjectButton = document.querySelector(".add-project");
+const addProjectButton = document.querySelector(".add-project");
 addProjectButton.addEventListener("click", () => {
   addProject();
 });
+const projectNamer = document.querySelector(".project-indicator");
+let projectObserverOptions = {
+  childList: true,
+  attributes: true,
+  characterData: true,
+  subtree: true,
+};
+const observer = new MutationObserver(pCallback);
+
+function pCallback(mutations) {
+  for (let mutation of mutations) {
+    if (mutation.type === "characterData") {
+      renameProject();
+    }
+  }
+}
+
+observer.observe(projectNamer, projectObserverOptions);

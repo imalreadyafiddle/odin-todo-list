@@ -1,9 +1,17 @@
+import { printProjects } from "./printProjects";
+
 function renameProject() {
-  console.log("project renamed");
-  // select project name
-  // read project name
-  // select project number
-  // change project name for all tasks with selected project number
+  let projectInfo = document.querySelector(".project-indicator");
+  let projectName = projectInfo.innerText;
+  let projectNumber = projectInfo.getAttribute("project-number");
+  let allTasks = JSON.parse(localStorage.getItem("tasks"));
+  allTasks.forEach((tasks) => {
+    if (tasks.projectNum == projectNumber) {
+      tasks.projectName = projectName;
+    }
+  });
+  localStorage.setItem("tasks", JSON.stringify(allTasks));
+  printProjects();
 }
 
 export { renameProject };

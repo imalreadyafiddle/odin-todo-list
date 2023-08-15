@@ -13,7 +13,6 @@ function printTasks(projectNumber) {
   let addTaskButton = document.querySelector(".add-task");
   addTaskButton.setAttribute("style", "opacity:1;");
   projectIndicator.setAttribute("contenteditable", true);
-  projectIndicator.addEventListener("change", renameProject);
   taskList.innerHTML = "";
 
   if (tasks[0] == undefined || projectNumber == "reset") {
