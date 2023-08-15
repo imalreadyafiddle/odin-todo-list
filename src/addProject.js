@@ -13,7 +13,7 @@ function addProject() {
     projectNum: newProjectNumber,
     taskNum: 1,
     projectName: "New Project",
-    taskName: "New Task 1",
+    taskName: "New Task",
     priority: "Medium",
     dueDate: today,
     status: "Not Started",
